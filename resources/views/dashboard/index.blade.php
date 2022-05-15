@@ -223,19 +223,19 @@
           ></a>
           <ul class="treeview-menu">
             <li>
-              <a class="treeview-item" href="#"
+              <a class="treeview-item" href="{{route('table-teacher','id')}}"
                 ><i class="icon fa fa-circle-o"></i> Quản lý Giảng Viên</a>
             </li>
             <li>
-              <a class="treeview-item" href="#"
+              <a class="treeview-item" href="{{route('table-user','id')}}"
                 ><i class="icon fa fa-circle-o"></i> Quản lý Nhân Viên</a>
             </li>
             <li>
-              <a class="treeview-item" href="#"
+              <a class="treeview-item" href="{{route('table-room','id')}}"
                 ><i class="icon fa fa-circle-o"></i> Quản lý Phòng Máy</a>
             </li>
             <li>
-              <a class="treeview-item" href="#"
+              <a class="treeview-item" href="{{route('table-grade','id')}}"
                 ><i class="icon fa fa-circle-o"></i> Quản lý Lớp Học</a>
             </li>
             <li>

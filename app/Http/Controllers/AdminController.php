@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Admin;
+use App\Models\Room;
+use App\Models\Grade;
+use App\Models\Teacher;
+use App\Models\Task;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
@@ -24,7 +28,7 @@ class AdminController extends Controller
         $user = Auth::user();
         $id = Admin::find($user->id);
        // @dd($id);
-       return redirect()->route('index-ad',$id->id);
+       return redirect()->route('index-ad');
         }else{
             return redirect()->back()->with("error","Đăng nhập không thành công");
         }
