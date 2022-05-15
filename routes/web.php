@@ -20,9 +20,7 @@ Route::get('/', function () {
 });
 
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
 Route::get('/page-login',[AdminController::class,'loginAD'])->name('login-ad');
 Route::post('/page-login', [AdminController::class,'xuLyloginAD'])->name('xl-login-ad');
 ///// Index Admin /////
