@@ -20,4 +20,4 @@ use App\HTTP\Controllers\AdminController;
 Route::get('/page-login',[AdminController::class,'loginAD'])->name('login-ad');
 Route::post('/page-login', [AdminController::class,'xuLyloginAD'])->name('xl-login-ad');
 ///// Index Admin /////
-Route::get('/index-admin/{id}',[AdminController::class,'indexAD'])->name('index-ad');
+Route::get('/index-admin',[AdminController::class,'indexAD'])->name('index-ad');

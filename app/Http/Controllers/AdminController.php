@@ -24,7 +24,7 @@ class AdminController extends Controller
         $user = Auth::user();
         $id = Admin::find($user->id);
        // @dd($id);
-       return redirect()->route('index-ad',$id->id);
+       return redirect()->route('index-ad');
         }else{
             return redirect()->back()->with("error","Đăng nhập không thành công");
         }
