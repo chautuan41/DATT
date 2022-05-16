@@ -17,8 +17,8 @@ use Hash;
 
 class RoomController extends Controller
 {
-    public function tableRoom($id){
+    public function tableRoom(){
         $lsRoom = Room::all();
-        return view('dashboard.room-table',compact('lsRoom','id'));
+        return view('dashboard.room-table',compact('lsRoom'));
     }
 }

@@ -35,13 +35,13 @@ Route::post('/page-login', [AdminController::class,'xuLyloginAD'])->name('xl-log
 
 Route::get('/index-admin',[AdminController::class,'indexAD'])->name('index-ad');
 
-Route::get('/room/{id}',[RoomController::class,'tableRoom'])->name('table-room');
+Route::get('/room',[RoomController::class,'tableRoom'])->name('table-room');
 
-Route::get('/grade/{id}',[GradeController::class,'tableGrade'])->name('table-grade');
+Route::get('/grade',[GradeController::class,'tableGrade'])->name('table-grade');
 
-Route::get('/teacher/{id}',[TeacherController::class,'tableTeacher'])->name('table-teacher');
+Route::get('/teacher',[TeacherController::class,'tableTeacher'])->name('table-teacher');
 
-Route::get('/user/{id}',[UserController::class,'tableUser'])->name('table-user');
+Route::get('/staff',[UserController::class,'tableUser'])->name('table-user');
 
 //Route::get('/task/{id}',[TaskController::class,'tableTask'])->name('table-task');
 

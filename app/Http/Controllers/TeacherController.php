@@ -17,8 +17,8 @@ use Hash;
 
 class TeacherController extends Controller
 {
-    public function tableTeacher($id){
+    public function tableTeacher(){
         $lsTeacher = Teacher::all();
-        return view('dashboard.teacher-table',compact('lsTeacher','id'));
+        return view('dashboard.teacher-table',compact('lsTeacher'));
     }
 }

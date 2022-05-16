@@ -25,8 +25,8 @@ class AdminController extends Controller
         //     dd($request);
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
         // Chứng thực thành công
-        $user = Auth::user();
-        $id = Admin::find($user->id);
+        // $user = Auth::user();
+        // $id = Admin::find($user->id);
        // @dd($id);
        return redirect()->route('index-ad');
         }else{
@@ -36,6 +36,6 @@ class AdminController extends Controller
     public function indexAD(Request $id){
         $index = Admin::find($id);
       //  @dd($id);
-        return view('dashboard.index',compact('index','id'));
+        return view('dashboard.index',compact('index'));
     }
 }
