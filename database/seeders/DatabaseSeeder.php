@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             GradesTableSeeder::class,
             RoomsTableSeeder::class,
             TeachersTableSeeder::class,
+            AdminSeeder::class,
         ]);
     }
 }

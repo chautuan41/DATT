@@ -12,8 +12,8 @@ use App\Models\Task;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
-use Auth;
 use Hash;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -27,7 +27,7 @@ class AdminController extends Controller
         // Chứng thực thành công
         $user = Auth::user();
         $id = Admin::find($user->id);
-       // @dd($id);
+       //@dd($id);
        return redirect()->route('index-ad');
         }else{
             return redirect()->back()->with("error","Đăng nhập không thành công");

@@ -19,8 +19,8 @@ class UsersTableSeeder extends Seeder
         $faker = Faker::create();
 
         User::create([
-            'fullname' => 'Vo Chau Tuan',
-            'email' => 'admin@vctuan.com',
+            'fullname' => 'Võ Châu Tuấn',
+            'email' => 'tuan@baotri.com',
             'password' => bcrypt('12345678'),
             'phone' => '0798888888',
             'status' => 1,

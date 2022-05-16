@@ -7,7 +7,9 @@ use App\HTTP\Controllers\GradeController;
 use App\HTTP\Controllers\TeacherController;
 use App\HTTP\Controllers\UserController;
 use App\HTTP\Controllers\TaskController;
-
+use App\HTTP\Controllers\LoginController;
+use App\HTTP\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,4 +44,18 @@ Route::get('/teacher/{id}',[TeacherController::class,'tableTeacher'])->name('tab
 Route::get('/user/{id}',[UserController::class,'tableUser'])->name('table-user');
 
 //Route::get('/task/{id}',[TaskController::class,'tableTask'])->name('table-task');
+
+//login user
+Route::get('/user-login',[LoginController::class,'index'])->name('user.login');
+Route::post('/user-login', [LoginController::class,'customLogin'])->name('user.login.post');
+Route::get('/logout', [LoginController::class,'signOut'])->name('user.logout');
+
+Route::get('/home',[HomeController::class,'index'])->name('user.home');
+Route::group(['middleware' => ['auth:web']], function () {
+    
+});
+
+
+Auth::routes();
+
 
