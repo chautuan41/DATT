@@ -17,8 +17,8 @@ use Hash;
 
 class GradeController extends Controller
 {
-    public function tableGrade($id){
+    public function tableGrade(){
         $lsGrade = Grade::all();
-        return view('dashboard.grade-table',compact('lsGrade','id'));
+        return view('dashboard.grade-table',compact('lsGrade'));
     }
 }

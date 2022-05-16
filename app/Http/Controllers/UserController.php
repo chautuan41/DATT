@@ -17,8 +17,8 @@ use Hash;
 
 class UserController extends Controller
 {
-    public function tableUser($id){
+    public function tableUser(){
         $lsUser = User::all();
-        return view('dashboard.user-table',compact('lsUser','id'));
+        return view('dashboard.user-table',compact('lsUser'));
     }
 }
