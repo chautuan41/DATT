@@ -19,129 +19,95 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="form-validation">
-                            <form class="form-valide" action="#" method="post">
+                            <form class="form-valide" action="{{route('home.create.post')}}" method="post">
                                 @csrf
                                 <div class="form-group row">
                                     <label class="col-lg-4 col-form-label" for="val-username">Phòng<span class="text-danger"></span>
                                     </label>
                                     <div class="col-lg-6">
+                                    <input type="hidden"  class="form-control-plaintext" id="val-username" name="room" placeholder="Enter a username.." value="{{ $dtR->id }}">
                                         <input type="text" readonly="readonly" class="form-control-plaintext" id="val-username" name="val-username" placeholder="Enter a username.." value="Phòng máy {{ $dtR->room_name}}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-email">Nhân viên <span class="text-danger">*</span>
+                                    <label class="col-lg-4 col-form-label" for="val-email">Nhân viên <span class="text-danger"></span>
                                     </label>
                                     <div class="col-lg-6">
-                                        <input type="text" class="form-control" readonly="readonly" id="val-email" name="val-email" placeholder="Your valid email.." value="{{ Auth::user()->fullname }}">
+                                    <input type="hidden"  class="form-control-plaintext" id="val-username" name="user" placeholder="Enter a username.." value="{{ Auth::user()->id }}">
+                                        <input type="text" class="form-control" readonly="readonly" id="val-email" name="val-username" placeholder="Your valid email.." value="{{ Auth::user()->fullname }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-skill">Best Skill <span class="text-danger">*</span>
+                                    <label class="col-lg-4 col-form-label" for="val-skill">Giảng viên <span class="text-danger">*</span>
                                     </label>
                                     <div class="col-lg-6">
-                                        <select class="form-control" id="val-skill" name="val-skill">
-                                            <option value="">Please select</option>
-                                            <option value="html">HTML</option>
-                                            <option value="css">CSS</option>
-                                            <option value="javascript">JavaScript</option>
-                                            <option value="angular">Angular</option>
-                                            <option value="angular">React</option>
-                                            <option value="vuejs">Vue.js</option>
-                                            <option value="ruby">Ruby</option>
-                                            <option value="php">PHP</option>
-                                            <option value="asp">ASP.NET</option>
-                                            <option value="python">Python</option>
-                                            <option value="mysql">MySQL</option>
+                                        <select class="form-control" id="val-skill" name="teacher">
+                                            <option value="">Chọn giảng viên</option>
+                                            @foreach($dtT as $T)
+                                            <option value="{{$T->id}}">{{$T->teacher_name}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-skill">Best Skill <span class="text-danger">*</span>
+                                    <label class="col-lg-4 col-form-label" for="val-skill">Lớp <span class="text-danger">*</span>
                                     </label>
                                     <div class="col-lg-6">
-                                        <select class="form-control" id="val-skill" name="val-skill">
-                                            <option value="">Please select</option>
-                                            <option value="html">HTML</option>
-                                            <option value="css">CSS</option>
-                                            <option value="javascript">JavaScript</option>
-                                            <option value="angular">Angular</option>
-                                            <option value="angular">React</option>
-                                            <option value="vuejs">Vue.js</option>
-                                            <option value="ruby">Ruby</option>
-                                            <option value="php">PHP</option>
-                                            <option value="asp">ASP.NET</option>
-                                            <option value="python">Python</option>
-                                            <option value="mysql">MySQL</option>
+                                        <select class="form-control" id="val-skill" name="grade">
+                                            <option value="">Chọn lớp</option>
+                                            @foreach($dtG as $G)
+                                            <option value="{{$G->id}}">{{$G->grade_name}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-suggestions">Suggestions <span class="text-danger">*</span>
+                                    <label class="col-lg-4 col-form-label" for="val-skill">Ngày lập <span class="text-danger">*</span>
                                     </label>
                                     <div class="col-lg-6">
-                                        <textarea class="form-control" id="val-suggestions" name="val-suggestions" rows="5" placeholder="What would you like to see?"></textarea>
+                                    <input type="text" class="form-control" name="date" placeholder="Ngày lập" id="mdate">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-skill">Best Skill <span class="text-danger">*</span>
+                                    <label class="col-lg-4 col-form-label" for="val-skill">Ca thứ <span class="text-danger">*</span>
                                     </label>
                                     <div class="col-lg-6">
-                                        <select class="form-control" id="val-skill" name="val-skill">
-                                            <option value="">Please select</option>
-                                            <option value="html">HTML</option>
-                                            <option value="css">CSS</option>
-                                            <option value="javascript">JavaScript</option>
-                                            <option value="angular">Angular</option>
-                                            <option value="angular">React</option>
-                                            <option value="vuejs">Vue.js</option>
-                                            <option value="ruby">Ruby</option>
-                                            <option value="php">PHP</option>
-                                            <option value="asp">ASP.NET</option>
-                                            <option value="python">Python</option>
-                                            <option value="mysql">MySQL</option>
+                                        <select class="form-control" id="val-skill" name="shifts">
+                                            <option value="">Chọn số ca</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-currency">Currency <span class="text-danger">*</span>
+                                    <label class="col-lg-4 col-form-label" for="val-suggestions">Cơ sở vật chất <span class="text-danger">*</span>
                                     </label>
                                     <div class="col-lg-6">
-                                        <input type="text" class="form-control" id="val-currency" name="val-currency" placeholder="$21.60">
+                                        <textarea class="form-control" id="val-suggestions" name="material_facilities" rows="5" placeholder="Mô tả......."></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-website">Website <span class="text-danger">*</span>
+                                    <label class="col-lg-4 col-form-label" for="val-suggestions">Lỗi phần cứng <span class="text-danger">*</span>
                                     </label>
                                     <div class="col-lg-6">
-                                        <input type="text" class="form-control" id="val-website" name="val-website" placeholder="http://example.com">
+                                        <textarea class="form-control" id="val-suggestions" name="hardware_error" rows="5" placeholder="Mô tả......."></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-phoneus">Phone (US) <span class="text-danger">*</span>
+                                    <label class="col-lg-4 col-form-label" for="val-suggestions">Lỗi phần mềm <span class="text-danger">*</span>
                                     </label>
                                     <div class="col-lg-6">
-                                        <input type="text" class="form-control" id="val-phoneus" name="val-phoneus" placeholder="212-999-0000">
+                                        <textarea class="form-control" id="val-suggestions" name="software_error" rows="5" placeholder="Mô tả......."></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-digits">Digits <span class="text-danger">*</span>
+                                    <label class="col-lg-4 col-form-label" for="val-username">Tình trạng <span class="text-danger"></span>
                                     </label>
                                     <div class="col-lg-6">
-                                        <input type="text" class="form-control" id="val-digits" name="val-digits" placeholder="5">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-number">Number <span class="text-danger">*</span>
-                                    </label>
-                                    <div class="col-lg-6">
-                                        <input type="text" class="form-control" id="val-number" name="val-number" placeholder="5.0">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-range">Range [1, 5] <span class="text-danger">*</span>
-                                    </label>
-                                    <div class="col-lg-6">
-                                        <input type="text" class="form-control" id="val-range" name="val-range" placeholder="4">
+                                    <input type="hidden"  class="form-control-plaintext" id="val-username" name="status" placeholder="Enter a username.." value="1">
+                                        <input type="text" readonly="readonly" class="form-control-plaintext" id="val-username" name="val-username" placeholder="Enter a username.." value="Kiểm kê">
                                     </div>
                                 </div>
                                 <div class="form-group row">

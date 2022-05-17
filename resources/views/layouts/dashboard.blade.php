@@ -124,7 +124,7 @@
                 ><i class="icon fa fa-circle-o"></i> Quản lý Lớp Học</a>
             </li>
             <li>
-              <a class="treeview-item" href="#"
+              <a class="treeview-item" href="{{route('Task')}}"
                 ><i class="icon fa fa-circle-o"></i> Quản lý Công Việc</a>
             </li>
           </ul>

@@ -6,13 +6,11 @@
              
              <li>
                  <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                     <i class="icon-menu menu-icon"></i><span class="nav-text">Bảng công việc</span>
+                     <i class="icon-menu menu-icon"></i><span class="nav-text">Bảng bảo trì</span>
                  </a>
                  <ul aria-expanded="false">
-                     <li><a href="./table-basic.html" aria-expanded="false">Basic Table</a></li>
-                     <li><a href="./table-datatable.html" aria-expanded="false">Data Table</a></li>
-                     <li><a href="./table-basic.html" aria-expanded="false">Basic Table</a></li>
-                     <li><a href="./table-datatable.html" aria-expanded="false">Data Table</a></li>
+                     <li><a href="{{route('inventory')}}" aria-expanded="false">Kiểm kê</a></li>
+                     <li><a href="{{route('user.home')}}" aria-expanded="false">Công việc</a></li>
                  </ul>
              </li>
          </ul>

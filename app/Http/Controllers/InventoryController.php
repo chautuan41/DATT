@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Inventory;
-use App\Models\Room;
 use Illuminate\Support\Facades\DB;
 
 class InventoryController extends Controller
@@ -12,24 +11,15 @@ class InventoryController extends Controller
     //
     function index()
     {
-        $dtInv = DB::table('inventories')->where('status','=','1')->get();   
+        $dtInv = DB::table('inventories')
+            ->join('users', 'inventories.user_id', '=', 'users.id')
+            ->join('rooms', 'inventories.room_id', '=', 'rooms.id')
+            ->join('teachers', 'inventories.teacher_id', '=', 'teachers.id')
+            ->join('grades', 'inventories.grade_id', '=', 'grades.id')
+            ->where('inventories.status','=','1')
+    		->get(); 
         return view('user.inventory.index',compact('dtInv'));
     }
-
-    function create()
-    {
-        return view('user.inventory.create');
-    }
-
-    function showCreate(Request $req){
-        $ProT = new Inventory();
-        $ProT->product_types_name = $req->name;
-        $ProT->status = 1;
-        $ProT -> save();
-        $dtProT = Inventory::all();
-       return redirect()->route('Inventory',compact('dtProT'));
-    }
-
  
     function edit($id)
     {
