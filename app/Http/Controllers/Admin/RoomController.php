@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -15,10 +17,10 @@ use Carbon\Carbon;
 use Auth;
 use Hash;
 
-class GradeController extends Controller
+class RoomController extends Controller
 {
-    public function tableGrade(){
-        $lsGrade = Grade::all();
-        return view('dashboard.grade-table',compact('lsGrade'));
+    public function tableRoom(){
+        $lsRoom = Room::all();
+        return view('dashboard.room-table',compact('lsRoom'));
     }
 }

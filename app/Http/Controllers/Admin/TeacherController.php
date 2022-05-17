@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -15,10 +17,10 @@ use Carbon\Carbon;
 use Auth;
 use Hash;
 
-class UserController extends Controller
+class TeacherController extends Controller
 {
-    public function tableUser(){
-        $lsUser = User::all();
-        return view('dashboard.user-table',compact('lsUser'));
+    public function tableTeacher(){
+        $lsTeacher = Teacher::all();
+        return view('dashboard.teacher-table',compact('lsTeacher'));
     }
 }

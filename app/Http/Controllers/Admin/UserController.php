@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Admin;
@@ -15,10 +16,10 @@ use Carbon\Carbon;
 use Auth;
 use Hash;
 
-class RoomController extends Controller
+class UserController extends Controller
 {
-    public function tableRoom(){
-        $lsRoom = Room::all();
-        return view('dashboard.room-table',compact('lsRoom'));
+    public function tableUser(){
+        $lsUser = User::all();
+        return view('dashboard.user-table',compact('lsUser'));
     }
 }

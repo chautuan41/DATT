@@ -9,12 +9,12 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../user/images/favicon.png">
     <!-- Pignose Calender -->
-    <link href="./user/plugins/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
+    <link href="../user/plugins/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
     <!-- Chartist -->
-    <link rel="stylesheet" href="./user/plugins/chartist/css/chartist.min.css">
-    <link rel="stylesheet" href="./user/plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">
+    <link rel="stylesheet" href="../user/plugins/chartist/css/chartist.min.css">
+    <link rel="stylesheet" href="../user/plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">
     <!-- Custom Stylesheet -->
-    <link href="./user/css/style.css" rel="stylesheet">
+    <link href="../user/css/style.css" rel="stylesheet">
 
 </head>
 
@@ -100,33 +100,33 @@
     <!--**********************************
         Scripts
     ***********************************-->
-    <script src="./user/plugins/common/common.min.js"></script>
-    <script src="./user/js/custom.min.js"></script>
-    <script src="./user/js/settings.js"></script>
-    <script src="./user/js/gleek.js"></script>
-    <script src="./user/js/styleSwitcher.js"></script>
+    <script src="../user/plugins/common/common.min.js"></script>
+    <script src="../user/js/custom.min.js"></script>
+    <script src="../user/js/settings.js"></script>
+    <script src="../user/js/gleek.js"></script>
+    <script src="../user/js/styleSwitcher.js"></script>
 
     <!-- Chartjs -->
-    <script src="./user/plugins/chart.js/Chart.bundle.min.js"></script>
+    <script src="../user/plugins/chart.js/Chart.bundle.min.js"></script>
     <!-- Circle progress -->
-    <script src="./user/plugins/circle-progress/circle-progress.min.js"></script>
+    <script src="../user/plugins/circle-progress/circle-progress.min.js"></script>
     <!-- Datamap -->
-    <script src="./user/plugins/d3v3/index.js"></script>
-    <script src="./user/plugins/topojson/topojson.min.js"></script>
-    <script src="./plugins/datamaps/datamaps.world.min.js"></script>
+    <script src="../user/plugins/d3v3/index.js"></script>
+    <script src="../user/plugins/topojson/topojson.min.js"></script>
+    <script src="../plugins/datamaps/datamaps.world.min.js"></script>
     <!-- Morrisjs -->
-    <script src="./user/plugins/raphael/raphael.min.js"></script>
-    <script src="./user/plugins/morris/morris.min.js"></script>
+    <script src="../user/plugins/raphael/raphael.min.js"></script>
+    <script src="../user/plugins/morris/morris.min.js"></script>
     <!-- Pignose Calender -->
-    <script src="./user/plugins/moment/moment.min.js"></script>
-    <script src="./user/plugins/pg-calendar/js/pignose.calendar.min.js"></script>
+    <script src="../user/plugins/moment/moment.min.js"></script>
+    <script src="../user/plugins/pg-calendar/js/pignose.calendar.min.js"></script>
     <!-- ChartistJS -->
-    <script src="./user/plugins/chartist/js/chartist.min.js"></script>
-    <script src="./user/plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
+    <script src="../user/plugins/chartist/js/chartist.min.js"></script>
+    <script src="../user/plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
 
 
 
-    <script src="./user/js/dashboard/dashboard-1.js"></script>
+    <script src="../user/js/dashboard/dashboard-1.js"></script>
 
 </body>
 
