@@ -45,30 +45,6 @@ class Handler extends ExceptionHandler
     }
 
     /**
-    * Handle an incoming request.
-    *
-    * @param \Illuminate\Http\Request $request
-    * @param \Closure $next
-    * @param string|null ...$guards
-    * @return mixed
-    */
-    public function handle(Request $request, Closure $next, $guard = null)
-    {
-        switch($guard){
-            case 'admin':
-            if (Auth::guard($guard)->check()) {
-                return redirect('/admin');
-            }
-            break;
-            default:
-            if (Auth::guard($guard)->check()) {
-            return redirect('/');
-            }
-            break;
-        }
-        return $next($request);
-    }
-    /**
     * @param \Illuminate\Http\Request $request
     * @param AuthenticationException $exception
     * @return \lluminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Symfony\Component\HttpFoundation\Response
