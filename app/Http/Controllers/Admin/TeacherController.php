@@ -56,4 +56,9 @@ class TeacherController extends Controller
         $t->save();
         return redirect()->back()->with("success","Thêm giảng viên thành công!");
     }
+    public function searchTeacher(){
+        $search_text=$_GET['query'];
+        $teacher=Teacher::where('teacher_name','LIKE','%'.$search_text.'%')->where('status','=',1)->get();
+        return view('dashboard.search-teacher',compact('teacher'));
+    }
 }

@@ -30,7 +30,7 @@
             <div class="alert alert-danger">{{ $error }}</div>
         @endforeach
     @endif
-        <form acction="{{route('update-pw',['id'=>$thongtin->id])}}"  method="POST">
+        <form acction="{{route('handle-change-password',['id'=>$thongtin->id])}}"  method="POST">
         {{ csrf_field() }}
             <div class="form-group">
             <label for="exampleInputEmail1">Mật khẩu hiện tại</label>

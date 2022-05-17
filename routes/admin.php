@@ -57,15 +57,17 @@ Route::group(['prefix' => '/'], function () {
         Route::post('/create-staff',[Admin\UserController::class,'createStaff'])->name('create-staff');
 
         ///// Information Profile /////
-        Route::get('/admin/profile/{id}',[Admin\AdminController::class,'formProfile'])->name('form-profile');
-        Route::post('/admin/profile/{id}',[Admin\AdminController::class,'updateProfile'])->name('handle-update-profile');
+        Route::get('/profile/{id}',[Admin\AdminController::class,'formProfile'])->name('form-profile');
+        Route::post('/profile/{id}',[Admin\AdminController::class,'updateProfile'])->name('handle-update-profile');
         ///// Change Password /////
-        Route::get('/admin/change-password/{id}',[Admin\AdminController::class,'formChangePassword'])->name('form-change-password');
-        Route::post('/admin/change-password/{id}',[Admin\AdminController::class,'updatePassword'])->name('handle-change-password');
+        Route::get('/change-password/{id}',[Admin\AdminController::class,'formChangePassword'])->name('form-change-password');
+        Route::post('/change-password/{id}',[Admin\AdminController::class,'updatePassword'])->name('handle-change-password');
 
         // Search
         Route::get('search-grade',[Admin\GradeController::class,'searchGrade'])->name('search-grade');
         Route::get('search-room',[Admin\RoomController::class,'searchRoom'])->name('search-room');
+        Route::get('search-teacher',[Admin\TeacherController::class,'searchTeacher'])->name('search-teacher');
+        Route::get('search-user',[Admin\UserController::class,'searchUser'])->name('search-user');
         });
     
             

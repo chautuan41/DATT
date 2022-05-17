@@ -11,6 +11,12 @@
     <li class="breadcrumb-item">Tables</li>
     <li class="breadcrumb-item active"><a href="#">Data Table</a></li>
   </ul>
+  <form  type="get" action="{{route('search-user','user')}}">
+  <li class="app-search" >
+            <input class="app-search__input" type="search" name="query" placeholder="Search" style="border-style: solid;  border-width: 1px;"/>
+            <button class="app-search__button" type="submit"> <i class="fa fa-search"></i></button>
+    </li>
+</form>
 </div>
 <div class="row">
   <div class="col-md-12">

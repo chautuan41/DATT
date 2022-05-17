@@ -60,4 +60,9 @@ class UserController extends Controller
         $u->save();
         return redirect()->back()->with("success","Thêm nhân viên thành công!");
     }
+    public function searchUser(){
+        $search_text=$_GET['query'];
+        $user=User::where('fullname','LIKE','%'.$search_text.'%')->where('status','=',1)->get();
+        return view('dashboard.search-user',compact('user'));
+    }
 }

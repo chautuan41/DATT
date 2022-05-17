@@ -72,7 +72,7 @@
               >
             </li>
             <li>
-              <a class="dropdown-item" href="#"
+              <a class="dropdown-item" href="{{route('form-profile',['id'=>Auth::user()->id])}}"
                 ><i class="fa fa-user fa-lg"></i> Thông tin cá nhân</a
               >
             </li>
