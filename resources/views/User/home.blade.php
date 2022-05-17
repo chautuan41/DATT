@@ -16,9 +16,9 @@
             @foreach ($dsR as $R)
             <div class="col-lg-4 col-sm-6">
                 <div class="card">
-                    <a href="#">
+                    <a href="{{route('home.create',['ID'=>$R->id])}}">
                         <div class="social-graph-wrapper widget-facebook">
-                            <span class="s-icon">{{ $R->room_name }}</i></span>
+                            <span class="s-icon">Phòng {{ $R->room_name }}</i></span>
                         </div>
                     </a>
                     <div class="pt-3 pb-3 pl-0 pr-0 text-center">
@@ -40,4 +40,4 @@
 
     </div>
 
-    @endsection
+@endsection

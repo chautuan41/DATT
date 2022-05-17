@@ -81,7 +81,7 @@
               >
             </li>
             <li>
-              <a class="dropdown-item" href="{{route('login-ad')}}"
+              <a class="dropdown-item" href="{{route('admin.logout')}}"
                 ><i class="fa fa-sign-out fa-lg"></i> Đăng xuất</a
               >
             </li>

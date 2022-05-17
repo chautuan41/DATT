@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Admin;
@@ -35,8 +36,26 @@ class AdminController extends Controller
     // }
     //Xử lý Đăng nhập
     public function xuLyloginAD(Request $request){
+<<<<<<< HEAD:app/Http/Controllers/AdminController.php
         $ad = Admin::where('email',$request->email)->first();
         if(empty($ad)){
+=======
+        //     // return view('xl-dang-nhap');
+        //     dd($request);
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+        // Chứng thực thành công
+
+        $user = Auth::user();
+        $id = Admin::find($user->id);
+       //@dd($id);
+
+        // $user = Auth::user();
+        // $id = Admin::find($user->id);
+       // @dd($id);
+
+       return redirect()->route('index-ad');
+        }else{
+>>>>>>> b8cc5f81eecfb0494c155c6f9a8708294ed03a2e:app/Http/Controllers/Admin/AdminController.php
             return redirect()->back()->with("error","Đăng nhập không thành công");
         }elseif(!Hash::check($request->password,$ad->password)){
             return redirect()->back()->with("error","Đăng nhập không thành công");
