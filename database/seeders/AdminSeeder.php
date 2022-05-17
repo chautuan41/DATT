@@ -26,13 +26,13 @@ class AdminSeeder extends Seeder
 
         DB::table('admins')->insert([
             [   'email'=>'adminthien1@gmail.com',
-                'fullname'=>'Thiện','password'=>Hash::make('12345'),
+                'fullname'=>'Thiện','password'=>Hash::make('1234567'),
                 'phone'=>'0902071234','status'=>1],
             [   'email'=>'adminthien2@gmail.com',
-                'fullname'=>'Trần Quang Thiện','password'=>Hash::make('12345'),
+                'fullname'=>'Trần Quang Thiện','password'=>Hash::make('1234567'),
                 'phone'=>'09001009','status'=>1],
             [   'email'=>'adminthien3@gmail.com',
-                'fullname'=>'Trần','password'=>Hash::make('12345'),
+                'fullname'=>'Trần','password'=>Hash::make('1234567'),
                 'phone'=>'190010654','status'=>1]
         ]);
     }

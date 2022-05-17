@@ -21,7 +21,7 @@ class UsersTableSeeder extends Seeder
         User::create([
             'fullname' => 'Võ Châu Tuấn',
             'email' => 'tuan@baotri.com',
-            'password' => bcrypt('12345678'),
+            'password' => bcrypt('1234567'),
             'phone' => '0798888888',
             'status' => 1,
         ]);
