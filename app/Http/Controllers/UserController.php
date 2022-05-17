@@ -21,4 +21,42 @@ class UserController extends Controller
         $lsUser = User::all();
         return view('dashboard.user-table',compact('lsUser'));
     }
+    public function deleteLsStaff($id_user){
+        $user = User::find($id_user);
+        $user->status = 0;
+        $user->save();
+        $dsUser = User::all();
+        return redirect()->route('table-user');
+    }
+    public function formUpdateStaff($id_user){
+        $dsUser = User::find($id_user);
+        return view('dashboard.update.form-update-user',compact('id_user','dsUser'));
+    }
+
+    public function updateStaff(Request $request,$id_user){
+        $updateUser = User::find($id_user);
+        $updateUser->fullname = $request->fullname;
+        $updateUser->phone = $request->phone;
+        $updateUser->email = $request->email;
+        $updateUser->save();
+        $upuser = User::find($id_user);
+        return redirect()->route('table-user',['id'=>$upuser]);
+    }
+    public function formCreateStaff(){
+        return view('dashboard.create.form-create-user');
+    }
+    public function createStaff(Request $request){
+        $us = User::where('email',$request->email)->first();
+        if($us == true){
+            return redirect()->back()->with("error","Nhân viên đã tồn tại.");
+        }
+        $u = new User();
+        $u->fullname = $request->fullname;
+        $u->phone = $request->phone;
+        $u->email = $request->email;
+        $u->password = Hash::make('12345');
+        $u->status = 1;
+        $u->save();
+        return redirect()->back()->with("success","Thêm nhân viên thành công!");
+    }
 }

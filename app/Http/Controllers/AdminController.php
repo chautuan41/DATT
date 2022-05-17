@@ -20,28 +20,48 @@ class AdminController extends Controller
     public function loginAD(){
         return view('dashboard.page-login');
     }
+    // public function xuLyloginAD(Request $request){
+    //     //     // return view('xl-dang-nhap');
+    //     //     dd($request);
+    //     if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+    //     // Chứng thực thành công
+    //     $user = Auth::user();
+    //     $id = Admin::find($user->id);
+    //    //@dd($id);
+    //    return redirect()->route('index-ad');
+    //     }else{
+    //         return redirect()->back()->with("error","Đăng nhập không thành công");
+    //     }
+    // }
+    //Xử lý Đăng nhập
     public function xuLyloginAD(Request $request){
-        //     // return view('xl-dang-nhap');
-        //     dd($request);
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-        // Chứng thực thành công
-<<<<<<< HEAD
-        $user = Auth::user();
-        $id = Admin::find($user->id);
-       //@dd($id);
-=======
-        // $user = Auth::user();
-        // $id = Admin::find($user->id);
-       // @dd($id);
->>>>>>> 1eb27d197eecde6b858a4e763dd73b783ef88075
-       return redirect()->route('index-ad');
-        }else{
+        $ad = Admin::where('email',$request->email)->first();
+        if(empty($ad)){
             return redirect()->back()->with("error","Đăng nhập không thành công");
+        }elseif(!Hash::check($request->password,$ad->password)){
+            return redirect()->back()->with("error","Đăng nhập không thành công");
+        }else{
+            $dt=Admin::find($ad);
+            return redirect()->route('index-ad',compact('dt'));
         }
     }
-    public function indexAD(Request $id){
-        $index = Admin::find($id);
-      //  @dd($id);
-        return view('dashboard.index',compact('index'));
+
+    public function indexAD(){
+        //@dd($id);
+        return view('dashboard.index');
     }
+    function formProfile($id){
+        $infor = Admin::find($id);
+        return view('dashboard.profile.infor',compact('infor','id'));
+    }
+    function updateProfile(Request $req,$id){
+        $ad = Admin::find($id);
+        $ad->email=$req->email;
+        $ad->fullname=$req->fullname;
+        $ad->phone=$req->phone;
+        $ad->save();
+        $infor = Admin::find($id);
+        return view('dashboard.profile.update-infor',compact('infor','id'));
+    }
+    
 }

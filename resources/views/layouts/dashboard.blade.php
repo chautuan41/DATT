@@ -43,8 +43,8 @@
         aria-label="Hide Sidebar"
       ></a>
       <!-- Navbar Right Menu-->
-      <!-- <ul class="app-nav">
-        <li class="app-search">
+      <ul class="app-nav">
+        <!-- <li class="app-search">
           <input class="app-search__input" type="search" placeholder="Search" />
           <button class="app-search__button">
             <i class="fa fa-search"></i>
@@ -52,13 +52,9 @@
         </li> -->
         <!--Notification Menu-->
         <li class="dropdown">
-          <a
-            class="app-nav__item"
-            href="#"
-            data-toggle="dropdown"
-            aria-label="Show notifications"
-            ><i class="fa fa-bell-o fa-lg"></i
-          ></a>
+            <a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Show notifications" >
+              <i class="fa fa-bell-o fa-lg"></i>
+            </a>
         </li>
         <!-- User Menu-->
         <li class="dropdown">
@@ -135,10 +131,17 @@
         </li>
       </ul>
     </aside>
+    <main class="app-content">
+    @yield('content')
+    </main>
     <script src="{{asset('dashboard/js/jquery-3.2.1.min.js')}}"></script>
     <script src="{{asset('dashboard/js/popper.min.js')}}"></script>
     <script src=" {{asset('dashboard/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('dashboard/js/main.js')}}"></script>
     <script src="{{asset('dashboard/js/pace.min.js')}}"></script>
+     <!-- Data table plugin-->
+     <script type="text/javascript" src="{{asset('dashboard/js/plugins/jquery.dataTables.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('dashboard/js/plugins/dataTables.bootstrap.min.js')}}"></script>
+    <script type="text/javascript">$('#sampleTable').DataTable();</script>
   </body>
 </html>
