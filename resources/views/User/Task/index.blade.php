@@ -1,5 +1,5 @@
 @extends('user.layouts.app')
-@section('title') Inventory @endsection
+@section('title') Task @endsection
 @section('content')
 <div class="content-body">
 
@@ -18,44 +18,37 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Bảng kiểm kê</h4>
+                        <h4 class="card-title">Bảng công việc</h4>
                         <div class="table-responsive">
                             <table class="table table-bordered verticle-middle">
                                 <thead>
                                     <tr>
+                                        <th scope="col">Admin id</th>
                                         <th scope="col">Nhân viên id</th>
-                                        <th scope="col">Phòng id</th>
-                                        <th scope="col">Giảng viên id</th>
-                                        <th scope="col">Lớp id</th>
-                                        <th scope="col">Ngày lập</th>
-                                        <th scope="col">Ca</th>
+                                        <th scope="col">Phòng</th>
                                         <th scope="col">CSVC</th>
                                         <th scope="col">Phần cứng</th>
                                         <th scope="col">Phần mềm</th>
                                         <th scope="col">Tình trạng</th>
-                                        <!-- <th scope="col"></th> -->
+                                        <th scope="col"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($dtInv as $Inv)
+                                    @foreach($dtTask as $Task)
                                     <tr>
-                                        <td>{{$Inv->user_id }}</td>
-                                        <td>{{$Inv->room_id}}</td>
-                                        <td>{{$Inv->teacher_id}}</td>
-                                        <td>{{$Inv->grade_id}}</td>
-                                        <td>{{$Inv->date}}</td>
-                                        <td>{{$Inv->shifts}}</td>
-                                        <td>{{$Inv->material_facilities}}</td>
-                                        <td>{{$Inv->hardware_error}}</td>
-                                        <td>{{$Inv->software_error}}</td>
-                                        @if($Inv->status==1)
-                                        <td><span class="badge badge-primary px-2">Chờ duyệt</span>
+                                        <td>{{$Task->admin_id}}</td>
+                                        <td>{{$Task->user_id }}</td>
+                                        <td>{{$Task->room_name}}</td>
+                                        <td>{{$Task->material_facilities}}</td>
+                                        <td>{{$Task->hardware_error}}</td>
+                                        <td>{{$Task->software_error}}</td>
+                                        @if($Task->status==1)
+                                        <td><span class="badge badge-primary px-2">Chờ bảo trì</span>
                                         </td>
-                                        <!-- <td><span><a href="#" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil color-muted m-r-5"></i> </a>
-                                                <a href="#" data-toggle="tooltip" data-placement="top" title="Close"><i class="fa fa-close color-danger"></i></a></span>
-                                        </td> -->
+                                        <td><span><a href="{{route('user.task.edit',['ID'=>$Task->id])}}" data-toggle="tooltip" data-placement="top" title="Bảo trì"><i class="fa fa-cogs color-muted m-r-5"></i> </a>
+                                        </td>
                                         @else
-                                        <td><span class="badge badge-success px-2">Đã duyệt</span>
+                                        <td><span class="badge badge-success px-2">Đã bảo trì</span>
                                         </td>
                                         @endif
                                         

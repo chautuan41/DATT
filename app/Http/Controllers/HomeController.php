@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Inventory;
 use App\Models\Task;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -48,7 +49,7 @@ class HomeController extends Controller
         $Inv->status = $req->status;
         $Inv -> save();
         $dtInv = Inventory::all();
-       return redirect()->route('Inventory',compact('dtInv'));
+       return redirect()->route('inventory',compact('dtInv'));
     }
 
     public function profile($id)
@@ -78,9 +79,15 @@ class HomeController extends Controller
     public function task()
     {
 
-        $dtTask = DB::table('tasks')->where('status','=','1')->get();
+        //$dtTask = Task::all();
         //dd($dtP);
-        return view('user.task.index',compact('dtP'));
+        $id=auth::user();
+        //dd($id->id);
+        $dtTask = DB::table('rooms')
+            ->join('tasks', 'tasks.room_id', '=', 'rooms.id')
+            ->where('tasks.id','=',$id->id)
+    		->get();
+        return view('user.task.index',compact('dtTask'));
     }
 
     public function updateTask($id)
@@ -88,7 +95,7 @@ class HomeController extends Controller
         $Task = Task::find($id);
         $Task -> status = 0;
         $Task -> save();
-        $dtTask = DB::table('tasks')->where('status','=','1')->get();
-        return redirect()->route('Task',compact('dtTask'));
+        $dtTask = Task::all();
+        return redirect()->route('user.task',compact('dtTask'));
     }
 }

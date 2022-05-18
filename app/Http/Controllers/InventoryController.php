@@ -11,13 +11,13 @@ class InventoryController extends Controller
     //
     function index()
     {
-        $dtInv = DB::table('inventories')
-            ->join('users', 'inventories.user_id', '=', 'users.id')
-            ->join('rooms', 'inventories.room_id', '=', 'rooms.id')
-            ->join('teachers', 'inventories.teacher_id', '=', 'teachers.id')
-            ->join('grades', 'inventories.grade_id', '=', 'grades.id')
-            ->where('inventories.status','=','1')
-    		->get(); 
+        // $dtInv = DB::table('inventories')
+        //     ->join('users', 'inventories.user_id', '=', 'users.id')
+        //     ->join('rooms', 'inventories.room_id', '=', 'rooms.id')
+        //     ->join('teachers', 'inventories.teacher_id', '=', 'teachers.id')
+        //     ->join('grades', 'inventories.grade_id', '=', 'grades.id')
+    	// 	->get(); 
+        $dtInv = Inventory::all();
         return view('user.inventory.index',compact('dtInv'));
     }
  

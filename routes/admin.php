@@ -24,6 +24,8 @@ Route::group(['prefix' => '/'], function () {
         Route::get('/task',[Admin\TaskController::class,'index'])->name('Task');
         Route::get('/task/create',[Admin\TaskController::class,'showCreate'])->name('task.create');
         Route::post('/task/create',[Admin\TaskController::class,'create'])->name('task.create.post');
+        Route::get('/task/inventory',[Admin\TaskController::class,'inventory'])->name('task.inventory');
+        Route::get('/task/inventory/{ID}',[Admin\TaskController::class,'confirm'])->name('task.confirm');
 
         //Delete
         Route::get('/delete-room/{id_room}',[Admin\RoomController::class,'deleteLsRoom'])->name('delete-room');

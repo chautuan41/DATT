@@ -10,7 +10,7 @@
                  </a>
                  <ul aria-expanded="false">
                      <li><a href="{{route('inventory')}}" aria-expanded="false">Kiểm kê</a></li>
-                     <li><a href="{{route('user.home')}}" aria-expanded="false">Công việc</a></li>
+                     <li><a href="{{route('user.task')}}" aria-expanded="false">Công việc</a></li>
                  </ul>
              </li>
          </ul>

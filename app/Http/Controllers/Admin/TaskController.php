@@ -9,7 +9,7 @@ use App\Models\User;
 use App\Models\Admin;
 use App\Models\Room;
 use App\Models\Grade;
-use App\Models\Teacher;
+use App\Models\Inventory;
 use App\Models\Task;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
@@ -21,7 +21,7 @@ class TaskController extends Controller
 {
      //
      public function index(){
-          $dtTask = DB::table('tasks')->where('status','=','1')->get();
+          $dtTask = Task::all();
           return view('dashboard.task.index',compact('dtTask'));
      }
 
@@ -64,6 +64,18 @@ class TaskController extends Controller
           return redirect()->route('Task',compact('dtTask'));
      }
 
-     
-     
+     function inventory()
+    {
+        $dtInv = $dtInv =Inventory::all();
+        return view('dashboard.task.inventory',compact('dtInv'));
+    }
+    
+    function confirm($id){       
+     $Inv = Inventory::find($id);
+     $Inv -> status = 0;
+     $Inv -> save();
+
+     $dtInv =Inventory::all();
+     return redirect()->route('task.inventory',compact('dtInv'));
+ } 
 }

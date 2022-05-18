@@ -5,6 +5,12 @@
   <p>
     <a href="{{route('task.create')}}" class="btn btn-primary pull-right">Thêm công việc</a>
   </p>
+</div>
+<div>
+  <p>
+    <a href="{{route('task.inventory')}}" class="btn btn-primary pull-right">Danh sách kiểm kê</a>
+  </p>
+  </div>
   </div>
   <ul class="app-breadcrumb breadcrumb side">
     <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
@@ -39,6 +45,7 @@
               <th>Lỗi phần cứng</th>
               <th>Lỗi phần mềm</th>
               <th>Tình trạng</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -53,14 +60,15 @@
                 <td>{{$Task->software_error}}</td>
                 @if($Task->status==1)
                 <td>Chờ bảo trì</td>
+                <td>
+                <a class="btn btn-primary pull-right" style="text-decoration: none; color:black"
+                href="#"> Sửa</a>
+                </td>
                 @else 
                 <td>Đã bảo trì</td>
                 @endif
-                <th><a class="" style="text-decoration: none; color:red" onclick="return confirm('Bạn có chắc không?')" 
-                href="#">Xóa </a>|
-                <a class="" style="text-decoration: none; color:black"
-                href="#"> Sửa</a>|
-                </th>
+                
+                
             </tr>
             @endforeach
           </tbody>
