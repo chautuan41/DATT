@@ -3,7 +3,7 @@
 <div class="app-title">
   <div>
   <p>
-    <a href="{{route('form-create-teacher')}}" class="btn btn-primary pull-right">Thêm Giảng Viên</a>
+    <a href="{{route('form-create-staff')}}" class="btn btn-primary pull-right">Thêm Nhân Viên</a>
   </p>
   </div>
   <ul class="app-breadcrumb breadcrumb side">
@@ -11,7 +11,7 @@
     <li class="breadcrumb-item">Tables</li>
     <li class="breadcrumb-item active"><a href="#">Data Table</a></li>
   </ul>
-  <form  type="get" action="{{route('search-teacher','teacher')}}">
+  <form  type="get" action="{{route('search-user','user')}}">
   <li class="app-search" >
             <input class="app-search__input" type="search" name="query" placeholder="Search" style="border-style: solid;  border-width: 1px;"/>
             <button class="app-search__button" type="submit"> <i class="fa fa-search"></i></button>
@@ -27,25 +27,29 @@
             <tr>
               <th>Id</th>
               <th>Họ và tên</th>
+              <th>Số điện thoại</th>
+              <th>Email</th>
               <th>Chức Năng</th>
             </tr>
           </thead>
           <tbody>
-            @forelse($lsTeacher as $teacher)
-            @if($teacher ->status==1)
+            @forelse($user as $user)
+            @if($user ->status==1)
             <tr>
-                <td>{{$teacher->id}}</td>
-                <td>{{$teacher->teacher_name}}</td>
+                <td>{{$user->id}}</td>
+                <td>{{$user->fullname}}</td>
+                <td>{{$user->phone}}</td>
+                <td>{{$user->email}}</td>
                 <th><a class="" style="text-decoration: none; color:red" onclick="return confirm('Bạn có chắc không?')" 
-                href="{{route('delete-teacher',['id_teacher'=>$teacher->id])}}">Xóa </a>|
+                href="{{route('delete-staff',['id_user'=>$user->id])}}">Xóa </a>|
                 <a class="" style="text-decoration: none; color:black"
-                href="{{route('form-update-teacher',['id_teacher'=>$teacher->id])}}"> Sửa</a>|
+                href="{{route('form-update-staff',['id_user'=>$user->id])}}"> Sửa</a>|
                 </th>
             </tr>
             @endif
             @empty
             <tr>
-                <td colspan="3">Không có dữ liệu</td>
+                <td colspan="5">Không có dữ liệu</td>
             </tr>
             @endforelse
           </tbody>

@@ -37,7 +37,7 @@
         </div>
     </div>
     <div class="tile-footer">
-        <a href="{{route('handle-update-profile',$id)}}" role="button" class="btn btn-primary">Chỉnh sửa</a>
+        <a href="{{route('handle-update-profile',['id'=>$infor->id])}}" role="button" class="btn btn-primary">Chỉnh sửa</a>
     </div>
     </div>
 </div>

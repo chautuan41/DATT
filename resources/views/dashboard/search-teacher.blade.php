@@ -31,7 +31,7 @@
             </tr>
           </thead>
           <tbody>
-            @forelse($lsTeacher as $teacher)
+            @forelse($teacher as $teacher)
             @if($teacher ->status==1)
             <tr>
                 <td>{{$teacher->id}}</td>

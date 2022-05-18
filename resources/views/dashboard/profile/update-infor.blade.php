@@ -15,16 +15,16 @@
     <div class="tile">
     <div class="row">
     <div class="col-lg-6">
-        <form method="POST" acction="{{route('',['id'=>$infor->id])}}">
+        <form method="POST" acction="{{route('handle-update-profile',['id'=>$infor->id])}}">
             @csrf
             <div class="form-group">
                 <label for="exampleInputEmail1">Tên Nhân Viên</label>
-                <input class="form-control" name="fullname" type="text" value="" required>
+                <input class="form-control" name="fullname" type="text"  value="{{$infor->fullname}}" required>
                 
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Số Điện Thoại</label>
-                <input class="form-control" name="phone" type="text" value="" required>
+                <input class="form-control" name="phone" type="text" value="{{$infor->phone}}" required>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Email</label>

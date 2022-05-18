@@ -53,6 +53,9 @@ class LoginController extends Controller
         ], $request->get('remember'))) {
             return redirect()->intended(route('index-ad'));
         }
+        else{
+            return redirect()->back()->with("error","Đăng nhập không thành công");
+        }
         return back()->withInput($request->only('email', 'remember'));
     }
 
