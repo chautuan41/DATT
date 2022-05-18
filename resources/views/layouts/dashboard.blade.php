@@ -35,7 +35,7 @@
   <body class="app sidebar-mini rtl">
     <!-- Navbar-->
     <header class="app-header">
-      <a class="app-header__logo" href="#">Kiểm Kê</a>
+      <a class="app-header__logo" href="{{route('index-ad')}}">Kiểm Kê</a>
       <!-- Sidebar toggle button--><a
         class="app-sidebar__toggle"
         href="#"
