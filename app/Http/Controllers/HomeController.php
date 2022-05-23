@@ -26,31 +26,7 @@ class HomeController extends Controller
         return view('user.home',compact('dsR'));
     }
 
-    function create($id)
-    {
-        $dtR = Room::find($id);
-        $dtG = DB::table('grades')->where('status','=','1')->get();
-        $dtT = DB::table('teachers')->where('status','=','1')->get();
-        
-        return view('user.create',compact('dtR','dtG','dtT'));
-    }
-
-    function showCreate(Request $req){
-        $Inv = new Inventory();
-        $Inv->user_id = $req->user;
-        $Inv->room_id = $req->room;
-        $Inv->teacher_id = $req->teacher;
-        $Inv->grade_id = $req->grade;
-        $Inv->date = $req->date;
-        $Inv->shifts = $req->shifts;
-        $Inv->material_facilities = $req->material_facilities;
-        $Inv->hardware_error = $req->hardware_error;
-        $Inv->software_error = $req->software_error;
-        $Inv->status = $req->status;
-        $Inv -> save();
-        $dtInv = Inventory::all();
-       return redirect()->route('inventory',compact('dtInv'));
-    }
+    
 
     public function profile($id)
     {

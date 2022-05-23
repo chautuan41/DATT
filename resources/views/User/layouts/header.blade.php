@@ -11,10 +11,10 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i class="mdi mdi-magnify"></i></span>
                 </div>
-                <input type="search" class="form-control" placeholder="Search Dashboard" aria-label="Search Dashboard">
+                <input type="search" class="form-control" placeholder="Tìm kiếm...." aria-label="Search Dashboard">
                 <div class="drop-down animated flipInX d-md-none">
                     <form action="#">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" class="form-control" placeholder="Search....">
                     </form>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                 
                 
                 <li class="icons">
-                    <a href="javascript:void(0)" class="log-user" data-toggle="dropdown">
+                    <a href="javascript:void(0)" class="log-user">
                         <span>{{ Auth::user()->fullname }}</span> 
                     </a>
                     
@@ -32,19 +32,19 @@
                 <li class="icons dropdown">
                     <div class="user-img c-pointer position-relative" data-toggle="dropdown">
                         <span class="activity active"></span>
-                        <img src="../user/images/user/1.png" height="40" width="40" alt="">
+                        <img src="../../user/images/user/1.png" height="40" width="40" alt="">
                     </div>
                     <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
                         <div class="dropdown-content-body">
                             <ul>
                                 <li>
-                                    <a href="{{route('user.profile',['ID'=>Auth::user()->id])}}"><i class="icon-user"></i> <span>Profile</span></a>
+                                    <a href="{{route('user.profile',['ID'=>Auth::user()->id])}}"><i class="icon-user"></i> <span>Thông tin cá nhân</span></a>
                                 </li>
                                 
 
                                 <hr class="my-2">
                                 
-                                <li><a href="{{ route('user.logout') }}"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                <li><a href="{{ route('user.logout') }}"><i class="icon-key"></i> <span>Đăng xuất</span></a></li>
                             </ul>
                         </div>
                     </div>

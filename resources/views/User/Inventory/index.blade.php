@@ -6,8 +6,8 @@
     <div class="row page-titles mx-0">
         <div class="col p-md-0">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-                <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Trang chủ</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Kiểm kê</a></li>
             </ol>
         </div>
     </div>
@@ -33,6 +33,7 @@
                                         <th scope="col">Phần cứng</th>
                                         <th scope="col">Phần mềm</th>
                                         <th scope="col">Tình trạng</th>
+                                        <th scope="col"></th>
                                         <!-- <th scope="col"></th> -->
                                     </tr>
                                 </thead>
@@ -51,12 +52,12 @@
                                         @if($Inv->status==1)
                                         <td><span class="badge badge-primary px-2">Chờ duyệt</span>
                                         </td>
-                                        <!-- <td><span><a href="#" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil color-muted m-r-5"></i> </a>
-                                                <a href="#" data-toggle="tooltip" data-placement="top" title="Close"><i class="fa fa-close color-danger"></i></a></span>
-                                        </td> -->
+                                        <td><span><a href="{{route('inventory.edit',['ID'=>$Inv->id])}}" data-toggle="tooltip" data-placement="top" title="Sửa"><i class="fa fa-pencil color-muted m-r-5"></i> </a>
+                                        </td>
                                         @else
                                         <td><span class="badge badge-success px-2">Đã duyệt</span>
                                         </td>
+                                        <td></td>
                                         @endif
                                         
                                     </tr>

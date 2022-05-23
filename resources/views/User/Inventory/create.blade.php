@@ -6,8 +6,8 @@
     <div class="row page-titles mx-0">
         <div class="col p-md-0">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-                <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Kiểm kê</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Tạo</a></li>
             </ol>
         </div>
     </div>
@@ -19,7 +19,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="form-validation">
-                            <form class="form-valide" action="{{route('home.create.post')}}" method="post">
+                            <form class="form-valide" action="{{route('inventory.create.post')}}" method="post">
                                 @csrf
                                 <div class="form-group row">
                                     <label class="col-lg-4 col-form-label" for="val-username">Phòng<span class="text-danger"></span>
@@ -108,14 +108,6 @@
                                     <div class="col-lg-6">
                                     <input type="hidden"  class="form-control-plaintext" id="val-username" name="status" placeholder="Enter a username.." value="1">
                                         <input type="text" readonly="readonly" class="form-control-plaintext" id="val-username" name="val-username" placeholder="Enter a username.." value="Kiểm kê">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label"><a href="#">Terms &amp; Conditions</a> <span class="text-danger">*</span>
-                                    </label>
-                                    <div class="col-lg-8">
-                                        <label class="css-control css-control-primary css-checkbox" for="val-terms">
-                                            <input type="checkbox" class="css-control-input" id="val-terms" name="val-terms" value="1"> <span class="css-control-indicator"></span> I agree to the terms</label>
                                     </div>
                                 </div>
                                 <div class="form-group row">

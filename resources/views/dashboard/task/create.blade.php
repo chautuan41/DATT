@@ -37,7 +37,7 @@
             <input class="form-control"  name="admin" type="hidden" value="{{Auth::user()->id}}" required> 
             <input class="form-control" name="text" type="text" value="{{Auth::user()->fullname}}" required> 
             </div>
-            <div class="form-group">
+            <div class="fo rm-group">
             <label for="exampleInputEmail1">Nhân viên</label>
             <select name="user" id="MaNCC">
                     <option value="">Không nhập giá trị</option>
@@ -68,7 +68,7 @@
             <input class="form-control" name="software_error" type="text"  required> 
             </div>
         <div class="tile-footer">
-            <button type="submit" class="btn btn-primary" onclick="return confirm('Bạn có chắc không?')">Thêm lớp</button>
+            <button type="submit" class="btn btn-primary" onclick="return confirm('Bạn có chắc không?')">Thêm công việc</button>
         </div>
         </form>
         </div>

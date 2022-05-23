@@ -6,8 +6,8 @@
     <div class="row page-titles mx-0">
         <div class="col p-md-0">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-                <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Trang chủ</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Công việc</a></li>
             </ol>
         </div>
     </div>
@@ -24,7 +24,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">Admin id</th>
-                                        <th scope="col">Nhân viên id</th>
+                                        <th scope="col">Nhân viên</th>
                                         <th scope="col">Phòng</th>
                                         <th scope="col">CSVC</th>
                                         <th scope="col">Phần cứng</th>
@@ -37,7 +37,7 @@
                                     @foreach($dtTask as $Task)
                                     <tr>
                                         <td>{{$Task->admin_id}}</td>
-                                        <td>{{$Task->user_id }}</td>
+                                        <td>{{Auth::user()->fullname }}</td>
                                         <td>{{$Task->room_name}}</td>
                                         <td>{{$Task->material_facilities}}</td>
                                         <td>{{$Task->hardware_error}}</td>
