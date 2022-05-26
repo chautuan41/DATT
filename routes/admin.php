@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin;
+use App\HTTP\Controllers\Auth\ForgotPasswordController;
 
 Route::group(['prefix' => '/'], function () {
     Route::get('login', [Admin\LoginController::class, 'showLoginForm'])->
@@ -10,7 +11,11 @@ Route::group(['prefix' => '/'], function () {
     name('xl-login-ad');
     Route::get('logout', [Admin\LoginController::class, 'logout'])->
     name('admin.logout');
-
+    
+    Route::get('/forget-password',[ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+    Route::post('/forget-password',[ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+    Route::get('/reset-password/{token}',[ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+    Route::post('/reset-password',[ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
     Route::group(['middleware' => ['auth:admin']], function () {
         ///// Index Admin /////
         Route::get('/',[Admin\AdminController::class,'indexAD'])->name('index-ad');
@@ -72,6 +77,9 @@ Route::group(['prefix' => '/'], function () {
         Route::get('search-room',[Admin\RoomController::class,'searchRoom'])->name('search-room');
         Route::get('search-teacher',[Admin\TeacherController::class,'searchTeacher'])->name('search-teacher');
         Route::get('search-user',[Admin\UserController::class,'searchUser'])->name('search-user');
+
+        // Forgot password
+       
         });
     
             

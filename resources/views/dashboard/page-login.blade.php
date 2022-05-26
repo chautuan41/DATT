@@ -51,7 +51,7 @@
                   <input type="checkbox"><span class="label-text">Vẫn đang đăng nhập</span>
                 </label>
               </div>
-              <p class="semibold-text mb-2"><a href="#" data-toggle="flip">Quên mật khẩu ?</a></p>
+              <p class="semibold-text mb-2"><a href="{{route('forget.password.get')}}" data-toggle="flip">Quên mật khẩu ?</a></p>
             </div>
           </div>
           <div class="form-group btn-container">
@@ -79,7 +79,7 @@
         </form>
         
       </div>
-      <div class="text-center p-t-46 p-b-20">
+          <!-- <div class="text-center p-t-46 p-b-20">
 						<div class="dropdown">
 							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Menu Đăng Nhập
@@ -89,7 +89,7 @@
 								<a class="dropdown-item" href="#">Admin</a>
 							</div>
 						</div>
-					</div>
+					</div> -->
     </section>
     <!-- Essential javascripts for application to work-->
     <script src="{{asset('dashboard/js/jquery-3.2.1.min.js')}}"></script>

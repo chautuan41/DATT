@@ -31,6 +31,9 @@ class AdminSeeder extends Seeder
             [   'email'=>'adminthien2@gmail.com',
                 'fullname'=>'Trần Quang Thiện','password'=>Hash::make('1234567'),
                 'phone'=>'09001009','status'=>1],
+            [   'email'=>'contact.thien.16@gmail.com',
+                'fullname'=>'Trần Quang Thiện','password'=>Hash::make('1234567'),
+                'phone'=>'09001009','status'=>1],
             [   'email'=>'adminthien3@gmail.com',
                 'fullname'=>'Trần','password'=>Hash::make('1234567'),
                 'phone'=>'190010654','status'=>1]
