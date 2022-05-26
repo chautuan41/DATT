@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html class="h-100" lang="en">
 
@@ -41,15 +40,15 @@
                     <div class="form-input-content">
                         <div class="card login-form mb-0">
                             <div class="card-body pt-5">
-                                <a class="text-center" href="index.html"> <h4>IT CKC</h4></a>
-        
+                                <h2 class="text-center">IT CKC</h2>
+                                <h4 class="text-center">Đăng nhập</h4>
                                 <form class="mt-5 mb-5 login-input" method="POST" action="{{ route('user.login.post') }}">
                                 @csrf
                                     <div class="form-group">
                                         <input type="email" class="form-control" placeholder="Email" name="email" required autocomplete="email" autofocus>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Password" name="password" required>
+                                        <input type="password" class="form-control" placeholder="Mật khẩu" name="password" required>
                                     </div>
                                     <button class="btn login-form__btn submit w-100">Đăng nhập</button>
                                 </form>

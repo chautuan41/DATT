@@ -42,7 +42,7 @@
           <tbody>
           @foreach($dtInv as $Inv)
                                     <tr>
-                                        <td>{{$Inv->fullname }} {{$Inv->id }}</td>
+                                        <td>{{$Inv->user_id }}</td>
                                         <td>{{$Inv->room_id}}</td>
                                         <td>{{$Inv->teacher_id}}</td>
                                         <td>{{$Inv->grade_id}}</td>

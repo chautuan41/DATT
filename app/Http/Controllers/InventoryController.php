@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Inventory;
 use Illuminate\Support\Facades\DB;
+use App\Models\Room;
+
 
 class InventoryController extends Controller
 {
@@ -12,28 +14,61 @@ class InventoryController extends Controller
     function index()
     {
         // $dtInv = DB::table('inventories')
-        //     ->join('users', 'inventories.user_id', '=', 'users.id')
         //     ->join('rooms', 'inventories.room_id', '=', 'rooms.id')
         //     ->join('teachers', 'inventories.teacher_id', '=', 'teachers.id')
         //     ->join('grades', 'inventories.grade_id', '=', 'grades.id')
-    	// 	->get(); 
+        //     ->join('users', 'inventories.user_id', '=', 'users.id')
+    	// 	->get();
         $dtInv = Inventory::all();
         return view('user.inventory.index',compact('dtInv'));
     }
- 
-    function edit($id)
+
+    function create($id)
     {
-        $dt = Inventory::find($id);
-        return view('admin.Inventory.edit',compact('dt'));
+        $dtR = Room::find($id);
+        $dtG = DB::table('grades')->where('status','=','1')->get();
+        $dtT = DB::table('teachers')->where('status','=','1')->get();
+        
+        return view('user.inventory.create',compact('dtR','dtG','dtT'));
     }
 
-    function showEdit(Request $req, $id){       
-        $ProT = Inventory::find($id);
-        $ProT->product_types_name = $req->name;
-        $ProT->status = $req->status;
-        $ProT -> save();
-        $dtProT = Inventory::all();
-       return redirect()->route('Inventory',compact('dtProT'));
+    function showCreate(Request $req){
+        $Inv = new Inventory();
+        $Inv->user_id = $req->user;
+        $Inv->room_id = $req->room;
+        $Inv->teacher_id = $req->teacher;
+        $Inv->grade_id = $req->grade;
+        $Inv->date = $req->date;
+        $Inv->shifts = $req->shifts;
+        $Inv->material_facilities = $req->material_facilities;
+        $Inv->hardware_error = $req->hardware_error;
+        $Inv->software_error = $req->software_error;
+        $Inv->status = $req->status;
+        $Inv -> save();
+        $dtInv = Inventory::all();
+       return redirect()->route('inventory',compact('dtInv'));
+    }
+ 
+    function showEdit($id)
+    {
+        $dt = Inventory::find($id);
+        $dtG = DB::table('grades')->where('status','=','1')->get();
+        $dtT = DB::table('teachers')->where('status','=','1')->get();
+        return view('user.Inventory.edit',compact('dt','dtG','dtT'));
+    }
+
+    function edit(Request $req, $id){       
+        $Inv = Inventory::find($id);
+        $Inv->teacher_id = $req->teacher;
+        $Inv->grade_id = $req->grade;
+        $Inv->date = $req->date;
+        $Inv->shifts = $req->shifts;
+        $Inv->material_facilities = $req->material_facilities;
+        $Inv->hardware_error = $req->hardware_error;
+        $Inv->software_error = $req->software_error;
+        $Inv -> save();
+        $dtInv = Inventory::all();
+       return redirect()->route('user.inventory',compact('dtInv'));
     }
 
     function delete($id){       
