@@ -1,4 +1,4 @@
-<h1>Forget Password Email</h1>
+<h1>Quên Mật Khẩu</h1>
    
-You can reset password from bellow link:
-<a href="{{ route('reset.password.get', $token) }}">Reset Password</a>
+Chúng tôi có thể đặt lại mật khẩu qua liên kết:
+<a href="{{ route('reset.password.get', $token) }}">Đặt lại mật khẩu</a>
