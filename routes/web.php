@@ -42,6 +42,9 @@ Route::group(['middleware' => ['auth:web']], function () {
     Route::get('/profile/edit/{ID}',[HomeController::class,'editShowProfile'])->name('profile.edit');
     Route::post('/profile/edit/{ID}',[HomeController::class,'editProfile'])->name('profile.edit.post');
 
+    Route::get('/changepassword/{ID}',[HomeController::class,'formChangePassword'])->name('user.changepassword');
+    Route::post('/changepassword/{ID}',[HomeController::class,'updatePassword'])->name('user.changepassword.post');
+
     Route::group(['prefix' => 'inventory'], function() {
         Route::get('/',[InventoryController::class, 'index'])->name('user.inventory');
         Route::get('/create/{ID}',[InventoryController::class, 'create'])->name('inventory.create');

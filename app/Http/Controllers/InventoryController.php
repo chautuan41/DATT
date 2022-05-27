@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Inventory;
 use Illuminate\Support\Facades\DB;
 use App\Models\Room;
+use App\Models\Grade;
+use App\Models\Teacher;
 
 
 class InventoryController extends Controller
@@ -46,7 +48,7 @@ class InventoryController extends Controller
         $Inv->status = $req->status;
         $Inv -> save();
         $dtInv = Inventory::all();
-       return redirect()->route('inventory',compact('dtInv'));
+       return redirect()->route('user.inventory',compact('dtInv'));
     }
  
     function showEdit($id)
@@ -54,7 +56,9 @@ class InventoryController extends Controller
         $dt = Inventory::find($id);
         $dtG = DB::table('grades')->where('status','=','1')->get();
         $dtT = DB::table('teachers')->where('status','=','1')->get();
-        return view('user.Inventory.edit',compact('dt','dtG','dtT'));
+        $dtTid = Teacher::find($dt->teacher_id);
+        $dtGid = Grade::find($dt->grade_id);
+        return view('user.inventory.edit',compact('dt','dtG','dtT','dtTid','dtGid'));
     }
 
     function edit(Request $req, $id){       

@@ -35,11 +35,11 @@
             <div class="form-group">
             <label for="exampleInputEmail1">Admin</label>
             <input class="form-control"  name="admin" type="hidden" value="{{Auth::user()->id}}" required> 
-            <input class="form-control" name="text" type="text" value="{{Auth::user()->fullname}}" required> 
+            <input class="form-control" readonly="readonly" name="text" type="text" value="{{Auth::user()->fullname}}" required> 
             </div>
-            <div class="fo rm-group">
+            <div class="form-group">
             <label for="exampleInputEmail1">Nhân viên</label>
-            <select name="user" id="MaNCC">
+            <select class="form-control" name="user" id="MaNCC">
                     <option value="">Không nhập giá trị</option>
                     @foreach($dtU as $a)
                         <option value="{{$a->id}}">{{$a->fullname}}</option>
@@ -47,11 +47,11 @@
                 </select>     
             </div>
             <div class="form-group">
-            <label for="exampleInputEmail1">Phòng</label>
-            <select name="room" id="MaNCC">
+            <label for="exampleInputEmail1">Phòng id</label>
+            <select class="form-control" name="room" id="MaNCC">
                     <option value="">Không nhập giá trị</option>
                     @foreach($dtR as $a)
-                        <option value="{{$a->id}}">{{$a->room_name}}</option>
+                        <option value="{{$a->id}}">{{$a->id}}</option>
                     @endforeach                                    
                 </select> 
             </div>

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Inventory;
 use App\Models\Task;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -40,6 +41,36 @@ class HomeController extends Controller
         $dtP = User::find($id);
         //dd($dtP);
         return view('user.profile.edit',compact('dtP'));
+    }
+
+    public function formChangePassword($id)
+    {
+        $dtP = User::find($id);
+        //dd($dtP);
+        return view('user.profile.passwordchange',compact('dtP'));
+    }
+
+    public function updatePassword(Request $request,$id)
+    {
+        if (!(Hash::check($request->get('password'), Auth::user()->password))) {
+            // Mật khẩu phù hợp
+            return redirect()->back()->with("error","Mật khẩu hiện tại của bạn không trùng khớp.",$id);
+        }
+
+        if(strcmp($request->get('password'), $request->get('password_new')) == 0){
+            // Mật khẩu hiện tại và mật khẩu mới giống nhau
+            return redirect()->back()->with("error","Mật khẩu mới không trùng khớp với mật khẩu hiện tại.",$id);
+        }
+        if(strcmp($request->get('new'), $request->get('confirm')) != 0){
+            // Xác nhận mật khẩu không khớp.
+            return redirect()->back()->with("error","Xác nhận mật khẩu không trùng khớp.",$id);
+        }
+
+        $user = User::find($id);
+        $user->password = bcrypt($request->get('new'));
+        $user->save();
+
+        return redirect()->back()->with("success","Mật khẩu thay đổi thành công!",$id);
     }
 
     public function editProfile(Request $req, $id)

@@ -26,9 +26,11 @@
                                     </label>
                                     <div class="col-lg-6">
                                         <select class="form-control" id="val-skill" name="teacher">
-                                            <option value="">Chọn giảng viên</option>
+                                            <option value="{{$dtTid->id}}">{{$dtTid->teacher_name}}</option>
                                             @foreach($dtT as $T)
+                                            @if($T->id != $dtTid->id)
                                             <option value="{{$T->id}}">{{$T->teacher_name}}</option>
+                                            @endif
                                             @endforeach
                                         </select>
                                     </div>
@@ -38,9 +40,11 @@
                                     </label>
                                     <div class="col-lg-6">
                                         <select class="form-control" id="val-skill" name="grade">
-                                            <option value="">Chọn lớp</option>
+                                            <option value="{{$dtGid->id}}">{{$dtGid->grade_name}}</option>
                                             @foreach($dtG as $G)
+                                            @if($G->id != $dtGid->id)
                                             <option value="{{$G->id}}">{{$G->grade_name}}</option>
+                                            @endif
                                             @endforeach
                                         </select>
                                     </div>
@@ -57,11 +61,12 @@
                                     </label>
                                     <div class="col-lg-6">
                                         <select class="form-control" id="val-skill" name="shifts" required>
-                                            <option value="">Chọn số ca</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
+                                            <option value="{{$dt->shifts}}">{{$dt->shifts}}</option>
+                                            @for ($x = 1; $x <= 4; $x++) 
+                                            @if($x != $dt->shifts)
+                                            <option value="$x">{{$x}}</option>
+                                            @endif
+                                            @endfor
                                         </select>
                                     </div>
                                 </div>
@@ -76,14 +81,14 @@
                                     <label class="col-lg-4 col-form-label" for="val-suggestions">Lỗi phần cứng <span class="text-danger">*</span>
                                     </label>
                                     <div class="col-lg-6">
-                                        <textarea class="form-control" id="val-suggestions" name="hardware_error" rows="5"  required>{{$dt->material_facilities}}</textarea>
+                                        <textarea class="form-control" id="val-suggestions" name="hardware_error" rows="5"  required>{{$dt->hardware_error}}</textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-lg-4 col-form-label" for="val-suggestions">Lỗi phần mềm <span class="text-danger">*</span>
                                     </label>
                                     <div class="col-lg-6">
-                                        <textarea class="form-control" id="val-suggestions" name="software_error" rows="5"  required>{{$dt->material_facilities}}</textarea>
+                                        <textarea class="form-control" id="val-suggestions" name="software_error" rows="5"  required>{{$dt->software_error}}</textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">
