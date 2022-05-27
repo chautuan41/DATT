@@ -97,7 +97,7 @@
         ***********************************-->
         <div class="footer">
             <div class="copyright">
-                <p>Copyright &copy; Designed & Developed by <a href="https://themeforest.net/user/quixlab">BaoTriCaoThang</a> 2022</p>
+                <p>Thiết kế và Phát triển bởi <a href="#">Bảo Trì Cao Thắng</a> 2022</p>
             </div>
         </div>
         <!--**********************************

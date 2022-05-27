@@ -27,10 +27,10 @@
         </li> -->
           <thead>
             <tr>
-              <th>Nhân viên</th>
-              <th>Phòng</th>
-              <th>Giảng viên</th>
-              <th>Lớp</th>
+              <th>Nhân viên id</th>
+              <th>Phòng id</th>
+              <th>Giảng viên id</th>
+              <th>Lớp id</th>
               <th>Ngày lập</th>
               <th>Ca</th>
               <th>Cơ sở vật chất</th>

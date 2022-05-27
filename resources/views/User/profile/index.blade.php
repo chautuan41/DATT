@@ -33,6 +33,9 @@
                                 <div class="general-button">
                                     <a href="{{route('profile.edit',['ID'=>$dtP->id])}}"><button type="button" class="btn mb-1 btn-primary">Chỉnh sửa</button></a>
                                 </div>
+                                <div class="general-button">
+                                    <a href="{{route('user.changepassword',['ID'=>$dtP->id])}}"><button type="button" class="btn mb-1 btn-primary">Thay đổi mật khẩu</button></a>
+                                </div>
                             </div>
                         </div>  
                     </div>

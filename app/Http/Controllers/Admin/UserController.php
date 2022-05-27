@@ -55,7 +55,7 @@ class UserController extends Controller
         $u->fullname = $request->fullname;
         $u->phone = $request->phone;
         $u->email = $request->email;
-        $u->password = Hash::make('12345');
+        $u->password = Hash::make('1234567');
         $u->status = 1;
         $u->save();
         return redirect()->back()->with("success","Thêm nhân viên thành công!");

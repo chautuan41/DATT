@@ -8,7 +8,7 @@
 </div>
 <div>
   <p>
-    <a href="{{route('task.inventory')}}" class="btn btn-primary pull-right">Danh sách kiểm kê</a>
+    <a href="{{route('task.inventory')}}" target="blank" class="btn btn-primary pull-right">Danh sách kiểm kê</a>
   </p>
   </div>
   </div>
@@ -45,7 +45,7 @@
               <th>Lỗi phần cứng</th>
               <th>Lỗi phần mềm</th>
               <th>Tình trạng</th>
-              <th></th>
+              
             </tr>
           </thead>
           <tbody>
@@ -60,10 +60,6 @@
                 <td>{{$Task->software_error}}</td>
                 @if($Task->status==1)
                 <td>Chờ bảo trì</td>
-                <td>
-                <a class="btn btn-primary pull-right" style="text-decoration: none; color:black"
-                href="#"> Sửa</a>
-                </td>
                 @else 
                 <td>Đã bảo trì</td>
                 @endif
