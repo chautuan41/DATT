@@ -39,8 +39,8 @@ class RoomController extends Controller
         $updateRoom = Room::find($id_room);
         $updateRoom->room_name = $request->room_name;
         $updateRoom->save();
-        $uproom = Room::find($id_room);
-        return redirect()->route('table-room',['id'=>$uproom]);
+        //$uproom = Room::find($id_room);
+        return redirect()->route('table-room');
     }
     public function formCreateRoom(){
         return view('dashboard.create.form-create-room');

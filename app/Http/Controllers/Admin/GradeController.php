@@ -39,8 +39,8 @@ class GradeController extends Controller
         $updateGrade = Grade::find($id_grade);
         $updateGrade->grade_name = $request->grade_name;
         $updateGrade->save();
-        $upgrade = Grade::find($id_grade);
-        return redirect()->route('table-grade',['id'=>$upgrade]);
+        //$upgrade = Grade::find($id_grade);
+        return redirect()->route('table-grade');
     }
     public function formCreateGrade(){
         return view('dashboard.create.form-create-grade');

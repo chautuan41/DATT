@@ -40,8 +40,9 @@ class UserController extends Controller
         $updateUser->phone = $request->phone;
         $updateUser->email = $request->email;
         $updateUser->save();
-        $upuser = User::find($id_user);
-        return redirect()->route('table-user',['id'=>$upuser]);
+        // $upuser = User::find($id_user);
+        // return redirect()->route('table-user',['id'=>$upuser]);
+        return redirect()->route('table-user');
     }
     public function formCreateStaff(){
         return view('dashboard.create.form-create-user');

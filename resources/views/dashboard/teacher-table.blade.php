@@ -39,7 +39,7 @@
                 <th><a class="" style="text-decoration: none; color:red" onclick="return confirm('Bạn có chắc không?')" 
                 href="{{route('delete-teacher',['id_teacher'=>$teacher->id])}}">Xóa </a>|
                 <a class="" style="text-decoration: none; color:black"
-                href="{{route('form-update-teacher',['id_teacher'=>$teacher->id])}}"> Sửa</a>|
+                href="{{route('form-update-teacher',['id_teacher'=>$teacher->id])}}"> Sửa</a>
                 </th>
             </tr>
             @endif

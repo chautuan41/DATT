@@ -56,7 +56,7 @@
                                         </td>
                                         <td>
                                         <a class="" style="text-decoration: none; color:red" onclick="return confirm('Bạn có chắc không?')" 
-                                            href="{{route('task.confirm',['ID'=>$Inv->id])}}">Xác nhận </a>|
+                                            href="{{route('task.confirm',['ID'=>$Inv->id])}}">Xác nhận </a>
                                         </td>
                                         <!-- <td><span><a href="#" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil color-muted m-r-5"></i> </a>
                                                 <a href="#" data-toggle="tooltip" data-placement="top" title="Close"><i class="fa fa-close color-danger"></i></a></span>

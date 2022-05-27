@@ -39,8 +39,9 @@ class TeacherController extends Controller
         $updateTeacher = Teacher::find($id_teacher);
         $updateTeacher->teacher_name = $request->teacher_name;
         $updateTeacher->save();
-        $upteacher = Teacher::find($id_teacher);
-        return redirect()->route('table-teacher',['id'=>$upteacher]);
+        //$upteacher = Teacher::find($id_teacher);
+        //return redirect()->route('table-teacher',['id'=>$upteacher]);
+        return redirect()->route('table-teacher');
     }
     public function formCreateTeacher(){
         return view('dashboard.create.form-create-teacher');

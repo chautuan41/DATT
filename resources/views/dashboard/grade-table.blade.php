@@ -45,7 +45,7 @@
                 <th><a class="" style="text-decoration: none; color:red" onclick="return confirm('Bạn có chắc không?')" 
                 href="{{route('delete-grade',['id_grade'=>$grade->id])}}">Xóa </a>|
                 <a class="" style="text-decoration: none; color:black"
-                href="{{route('form-update-grade',['id_grade'=>$grade->id])}}"> Sửa</a>|
+                href="{{route('form-update-grade',['id_grade'=>$grade->id])}}"> Sửa</a>
                 </th>
             </tr>
             @endif

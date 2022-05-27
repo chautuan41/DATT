@@ -18,8 +18,6 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
-    
-
     public function indexAD(){
         //@dd($id);
         return view('layouts.dashboard');
@@ -44,7 +42,7 @@ class AdminController extends Controller
     public function updatePassword(Request $request,$id) {
         if (!(Hash::check($request->get('password_old'), Auth::user()->password))) {
             // Mật khẩu phù hợp
-            return redirect()->back()->with("error","Mật khẩu hiện tại của bạn không khớp với mật khẩu.",$id);
+            return redirect()->back()->with("error","Mật khẩu hiện tại của bạn không trùng khớp.",$id);
         }
 
         if(strcmp($request->get('password_old'), $request->get('password_new')) == 0){
@@ -58,12 +56,13 @@ class AdminController extends Controller
 
         $validatedData = $request->validate([
             'password_old' => 'required',
-            'password_new' => 'required|string|min:5',
+            'password_new' => 'required|string|min:6',
             'password_cf' => 'required|same:password_new',
         ]);
 
         //Thay đổi password
-        $user = Auth::user();
+        //$user = Auth::user();
+        $user = Admin::find($id); 
         $user->password = bcrypt($request->get('password_new'));
         $user->save();
 
